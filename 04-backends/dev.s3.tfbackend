@@ -1,0 +1,4 @@
+bucket = "terraform-course-remote-backend-ffshsfh234"
+key = "04-backend/dev/state.tfstate"
+region = "eu-west-1"
+profile = "AdministratorAccess-565393040165"
