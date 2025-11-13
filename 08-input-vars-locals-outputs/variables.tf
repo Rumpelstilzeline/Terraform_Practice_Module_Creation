@@ -26,3 +26,10 @@ variable "ec2_volume_config" {
     type = "gp3"
   }
 }
+
+variable "additional_tags" {
+  type = map(string)
+  default = {
+    
+  }
+}
