@@ -24,3 +24,4 @@ resource "aws_instance" "compute" {
     volume_type           = var.ec2_volume_config.type
   }
 }
+
