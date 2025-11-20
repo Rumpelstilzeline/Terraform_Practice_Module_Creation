@@ -44,3 +44,17 @@ resource "aws_instance" "from_list" {
     Project = local.project
   }
 }
+
+resource "aws_instance" "from_map" {
+  # each.key => holds the key of each key-value pair in the map (key i.e. ubuntu_1)
+  # each.value => holds the value of the map
+  for_each      = var.ec2_instance_config_map
+  ami           = local.ami_ids[each.value.ami]
+  instance_type = each.value.instance_type
+  subnet_id     = aws_subnet.main[each.value.subnet_index].id
+  # we have defined 2 subnets, which are spread over x instances
+  tags = {
+    Name    = "${local.project}-${each.key}"
+    Project = local.project
+  }
+}
