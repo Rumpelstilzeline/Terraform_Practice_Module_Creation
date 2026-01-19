@@ -3,7 +3,7 @@
 ######################
 
 variable "project_name" {
-  type = string
+  type        = string
   description = "name of our project"
 }
 
@@ -13,8 +13,8 @@ variable "project_name" {
 ######################
 
 variable "instance_class" {
-  type    = string
-  default = "db.t3.micro"
+  type        = string
+  default     = "db.t3.micro"
   description = "allowed instance classes"
 
   validation {
@@ -25,8 +25,8 @@ variable "instance_class" {
 }
 
 variable "storage_size" {
-  type    = number
-  default = 10
+  type        = number
+  default     = 10
   description = "the amount of storage to allocate to the database. Should be between 5GB and 10GB."
 
   validation {
@@ -38,8 +38,8 @@ variable "storage_size" {
 
 
 variable "engine" {
-  type    = string
-  default = "postgres-latest"
+  type        = string
+  default     = "postgres-latest"
   description = "Which engine to use for database, currently only postgres supported"
 
   validation {
@@ -78,11 +78,13 @@ variable "credentials" {
 ######################
 
 variable "subnet_ids" {
-  type = list(string)
-  
+  type        = list(string)
+  description = "Subnet IDs to deploy the RDS instance in."
+
 }
 
 variable "security_group_ids" {
-  type = list(string)
-  
+  type        = list(string)
+  description = "Security group IDs to attach to the RDS instance"
+
 }
